@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Theme Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="documentation.css" type="text/css" media="screen, projection">	
+</head>
+
+<body data-spy="scroll" data-target=".nav-sidebar">
+
+    <div class="container">    
+    
+        <div class="row">
+        
+            <div class="span2 nav-sidebar">
+            
+                <ul class="nav nav-list nav-sidenav" data-spy="affix" data-offset-top="0">
+                    <li class="active"><a href="#overview">Overview</a></li>
+                    <li><a href="#gettingstarted">Getting Started</a></li>
+                    <li><a href="#code">Code Structure</a></li>
+                    <li><a href="#design">Design Assets</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#themecheck">Theme Check</a></li>
+                    <li><a href="#performance">Performance</a></li>
+                    <li><a href="#upgrading">Upgrading</a></li>
+                    <li><a href="#credits">Credits</a></li>
+                    
+                </ul>
+            
+            </div>
+            
+            <div class="span10">    
+            
+<section id="overview">                
+    
+    <h1>Overview</h1>
+    
+    <p>&nbsp;</p>
+    
+    <div class="hero-unit">
+      <h2>Thanks for choosing Industrial Themes!</h2>
+      <p>We want you to be completely satisfied with this theme. If you have any questions that go beyond the scope of this documentation, please refer to our support portal for the most up-to-date resources.</p>
+      <p>
+        <a class="btn btn-primary btn-large" href="http://www.industrialthemes.com/flavor/support/" target="_blank">Support Portal</a>
+      </p>
+    </div>
+    
+    <div class="well">
+        <b>Flavor documentation by Industrial Themes, LLC v1.0</b><br />
+        Created 5/25/2013<br />
+        <a href="mailto:support@industrialthemes.com">support@industrialthemes.com</a>                    
+    </div>
+    
+    <p>
+    We've taken careful measures and a lot of time to document this theme fully. Please refer to the support portal above for very helpful resources that expand upon the helpful information in this documentation, including:
+    </p>
+    
+    <p>&nbsp;</p>
+    
+    <dl class="dl-horizontal">
+        <dt>Screencasts</dt>
+        <dd>Helpful visual video guides addressing common questions such as how to create minisites</dd>
+        <dt>FAQs</dt>
+        <dd>Answers to frequently asked questions including question that surfaced after the writing of this document</dd>
+        <dt>Credits</dt>
+        <dd>Licensing information about theme assets like images and fonts</dd>
+        <dt>Support Center</dt>
+        <dd>Where to get help if your issue is not addressed in any of the above resources</dd>
+        <dt>Contact Info</dt>
+        <dd>How to get in touch with us</dd>
+    </dl>
+    
+    <p>&nbsp;</p>
+    
+    <p>
+    The following sections explain everything there is to know about this theme, from installing it, to importing demo content, to modifying theme files, to setting up content carousels, to troubleshooting, to helpful tips and beyond! Please let us know if we missed anything or anything is inaccurate in this documentation - we would greatly appreciate it.
+    </p>       
+    
+    <p>&nbsp;</p>
+
+</section>
+
+<section id="gettingstarted">                
+    
+    <h1>Getting Started</h1>
+    
+    <h3>Installation</h3>
+    
+    <p>
+    ThemeForest provides two different theme files to download. You need only download the installable theme file unless you want additional reference material such as layered PSD designs or PNG components. Once you've downloaded the installable theme zip file, there are two ways to install it in your WordPress install:
+    </p>
+    
+    <ol>
+        <li>WordPress Theme Installer</li>
+        <li>Manual FTP Upload</li>
+    </ol>    
+    
+    <p>
+    We usually recommend the FTP method since it cuts out the middleman (WordPress uploader code) and is the most straightforward way to do it. However some prefer directly installing in WordPress for convenience. To use the WordPress installer:
+    </p>
+    
+    <ol>
+        <li>Login to WordPress and go to Appearance >> Themes</li>
+        <li>Click the Install Themes tab at the top</li>
+        <li>Click the Upload link</li>
+        <li>Choose the theme .zip file on your computer that you downloaded from ThemeForest and click Install Now</li>
+        <li>The theme should now be available to activate in your list of themes</li>                    
+    </ol>   
+    
+    <p>
+    If you run into any issues it is possible that a plugin or internal component is causing issues, and sometimes max upload filesize limits imposed by web hosts can also wreak havoc on larger themes. Whatever the cause, if you want to manually upload the theme via FTP:
+    </p>
+    
+    <ol>
+        <li>Unzip the theme file that you downloaded from ThemeForest</li>
+        <li>Connect to your web server via FTP (contact your web host if you don't know how to do this)</li>
+        <li>Navigate to your WordPress install and find the wp-content/ folder, and then the themes/ folder inside of that</li>
+        <li>Upload the flavor folder directly inside of the themes/ folder so that it exists in this location: /wp-content/themes/flavor</li>
+        <li>Login to WordPress and go to Appearance >> Themes</li>
+        <li>The theme should now be available to activate in your list of themes</li>                          
+    </ol>  
+    
+    <p>
+    <span class="label label-important">Important </span> The folder you install/upload should be called "flavor" and contain the <code>style.css</code> file directly inside of it (this is the file that tells WordPress the name of the theme). <strong><em>Do not install/upload any other folder, such as "Flavor-Theme" for instance</em></strong>. This will cause the theme to break and give you problems. If you do happen to have already uploaded the wrong folder you can likely fix the issue without having to re-upload or move the theme. To do so, open the <code>ajax.php</code> file inside the functions folder and adjust the wordpress location variable on line 7: <code>$wordpress_location = "../../../../wp-load.php";</code>. For instance, if you uploaded the Flavor-Theme folder containing the flavor folder instead of just the flavor folder itself, you would need to add one extra <code>../</code> to the string since it's technically one folder level deeper, so it would become: <code>$wordpress_location = "../../../../../wp-load.php";</code>. However note that using any other folder besides the flavor folder is <strong><em>untested and highly discouraged</em></strong>.
+    </p>
+    
+    <h3>Importing the Demo Content</h3>
+    
+    <p>
+    We have made recreating the demo site easy with a 3-step process. This process assumes you have a blank WordPress install with no content. 
+    </p>
+    
+    <h5>1. Load the settings</h5>
+    
+    <ul>
+    	<li>Activate Flavor and delete the default "Sample Post" blog post that WordPress automatically creates for new installs.</li>
+        <li>Go to Appearance >> Theme Options and click the "Load Demo Settings" at the bottom (click OK on the javascript message)</li>
+    </ul>
+        
+    <h5>2. Import the content</h5>
+    
+    <ul>
+    	<li>Go to Tools >> Import >> WordPress >> Choose File and select the flavor.xml file that is provided with your ThemeForest download.</li>
+        <li>Click "Upload file and import"</li>
+        <li>Select "Download and import file attachments" and click Submit (don't make any author assignments, unless of course you want to reassign posts to existing authors).</li>
+    </ul>
+    
+    <h5>3. Adjust a few settings</h5>
+    
+    <p>Because the demo settings are required to be loaded before importing the XML file, you will need to make a few more selections.</p>
+    
+    <p>
+    <ul>
+    	<li>Under Theme Options >> Content Carousels
+        	<ul>
+            	<li>Select "sizzlin" for the Sizzlin' Slider >> Use Tag Instead option</li>
+                <li>Select "featured" for the Featured Slider >> Use Tag Instead option</li>
+            </ul>
+        </li>
+        <li>Under Theme Options >> Custom Sidebars, create a new sidebar called Review Directory Long</li>
+        <li>Under Appearance >> Menus, select Top Menu, Main Menu, and Sub Menu for each of the three menus in Theme Locations.</li>
+        <li>finally (and optionally), go to Settings >> Reading and change "Blog pages show at most" to 9 posts</li>
+    </ul>
+    </p>
+    
+    <div class="well">
+
+        Notes:
+        
+        <ul>
+            <li>Your sample users will not have bios or profile fields filled out because WordPress doesn't include that info when it imports the authors, so you'll have to add that data. You'll likely be deleting them and replacing them with your own users anyway (or assigning all posts to yourself as admin) so it doesn't matter much.</li>
+            <li>The images used in the live preview were purchased for demonstration purposes and are licensed correctly. The demo XML contains placeholder images that you can replace with your own images. Demo images licensing info is located <a href="http://www.industrialthemes.com/flavor/support/credits/">here</a> (click the images tab)</li>
+        </ul>
+        
+    </div>
+    
+    <h3>AJAX Thumbnail Rebuild</h3>
+    
+    <p>If you are installing this theme on a brand new blank WordPress installation, you can skip this section. If you already have articles with featured images in your WordPress site before you install the theme, you will need to resize your featured images to fit the dimensions of all the thumbnail areas. To easily and quickly do this, install the AJAX Thumbnail Rebuild plugin, and then go to Tools >> Rebuild Thumbnails and run it once. After the first time you run it, you will not have to run it again since any images uploaded after you have installed the theme will automatically be sized correctly. It only applies to images uploaded to your media library before you install the theme.</p>
+    
+    <p><span class="label label-info">Tip </span> If you have a lot of images it might take a while to complete - just let it work its magic and if for some reason it doesn't finish the first time feel free to run it again as many times as you want - it won't hurt anything or create any duplicate images.</p>
+    
+</section>
+
+<section id="code">                
+    
+    <h1>Code Structure</h1>
+    
+    <h3>HTML</h3>
+    
+    <p>
+    This theme is built using <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a> and is an 1140px-wide responsive layout. All of the code is spaced, indented, commented in-line, and semantically written to make it as easy as possible to edit and customize to your particular needs. The theme is built with valid HTML5 code and has been tested to be compatible with Chrome, Firefox, Opera, Safari, IE9, and IE10, and was also tested on an iPad using Chrome and Safari as well as an iPhone. The theme is HiDPI/retina compatible. It was built and tested with WordPress versions 3.5 and 3.6. The general layout of the HTML code is as follows:
+    </p>
+    
+    <button type="button" class="btn" data-toggle="collapse" data-target="#htmlcode">View Code</button>
+    
+    <div id="htmlcode" class="collapse out">
+    
+    <pre>
+    
+&lt;div class="container-fluid" id="top-menu-wrapper"&gt;
+
+    &lt;div class="row-fluid"&gt; 
+    
+        &lt;div class="floatleft" id="top-menu"&gt;
+        
+        ...top menu bar...
+        
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+    
+&lt;/div&gt;
+    
+&lt;div class="container"&gt;
+    
+    &lt;div id="trending-row"&gt;
+    
+        &lt;div id="trending-wrapper"&gt;
+        
+            &lt;div class="row"&gt;	
+            
+                &lt;div id="trending"&gt;
+                
+                ...trending carousel...
+                
+                &lt;/div&gt;
+            
+            &lt;/div&gt;
+        
+        &lt;/div&gt;
+    
+    &lt;/div&gt;
+    
+    &lt;div id="logo-bar"&gt;
+    
+        &lt;div class="row"&gt;
+        
+            &lt;div id="logo" class="span4"&gt;
+            
+            ...logo...
+            
+            &lt;/div&gt;
+        
+            &lt;div id="sizzlin-wrapper" class="span8"&gt;
+            
+            ...sizzlin' carousel...
+            
+            &lt;/div&gt;
+        
+        &lt;/div&gt;
+    
+    &lt;/div&gt;
+    
+    &lt;div class="row"&gt;
+    
+        &lt;div class="span12"&gt;
+        
+            &lt;div id="main-menu-wrapper"&gt;
+            
+            ...main menu...
+            
+            &lt;/div&gt;
+        
+        &lt;/div&gt;
+    
+    &lt;/div&gt;
+    
+    &lt;div class="row"&gt;
+    
+        &lt;div class="span12"&gt;
+        
+            &lt;div id="featured-bar-wrapper"&gt;
+            
+            ...featured carousel and widgets...
+            
+            &lt;/div&gt;
+        
+        &lt;/div&gt;
+    
+    &lt;/div&gt;
+    
+    &lt;div class="row"&gt;
+    
+        &lt;div class="span12" id="top-ten"&gt;
+        
+        ...top ten carousel...
+        
+        &lt;/div&gt;
+    
+    &lt;/div&gt;
+
+    &lt;div class="row post-loop"&gt;
+    
+        &lt;div class="span12"&gt;
+        
+            &lt;div class="sortbar"&gt;
+            
+                &lt;div class="row"&gt;
+                
+                    &lt;div class="span12"&gt;
+                    
+                        ...sortbar buttons...
+                        
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+            
+            &lt;div class="content-wrapper"&gt;
+            
+                &lt;div class="row"&gt;
+                
+                    &lt;div class="span12"&gt;                
+                            
+                        &lt;div class="main-loop"&gt;
+                        
+                            ...post loop...
+                            
+                        &lt;/div&gt;
+                        
+                        &lt;div id="sidebar-wrapper" class="sidebar-right"&gt;
+                        
+                            ...sidebar...
+                            
+                        &lt;/div&gt;
+                        
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+                
+            &lt;/div&gt;
+            
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div id="footer-wrapper"&gt;
+
+    &lt;div class="container"&gt;
+    
+        &lt;div id="footer"&gt;
+        
+        	&lt;div class="row"&gt;
+            
+            	...footer widgets...
+                
+            &lt;/div&gt;
+            
+        &lt;/div&gt;
+        
+    &lt;/div&gt;
+    
+&lt;/div&gt; 
+    
+    </pre>
+    
+    </div> 
+    
+    <br />   
+    
+    <h3>CSS</h3>
+    
+    <p>
+    The style scaffolding for this theme is provided by <a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a> which enables all the responsive layouts and basic styling of most elements. The <code>bootstrap.css</code> file which is in the css/ folder is loaded by the theme first, followed by the theme's main stylesheet: <code>style.css</code> in the main folder. Then lastly the Internet Explorer specific stylesheets are loaded which are in the css/ folder called <code>ie9.css</code> and <code>ie10.css</code>. You'll notice another file in the css/ folder called <code>editor-style.css</code> which is only loaded in the admin panel and is used to style the content editor box.
+    </p>
+    
+    <p>Since this theme is both responsive and HiDPI/retina ready, it has a fairly complex stylesheet and makes use of media queries to serve specific styles for specific displays. Also, any Bootstrap style overrides that are necessary for the theme are also within the style.css file. We have provided a blueprint of the stylesheet so that you can more easily find what you're looking for:</p>
+    
+    <button type="button" class="btn" data-toggle="collapse" data-target="#csscode">View Code</button>
+    
+    <div id="csscode" class="collapse out">
+    
+    <pre>
+    
+/*************************************************
+general fonts
+*************************************************/
+
+font declarations
+
+/*************************************************
+general utilities
+*************************************************/
+
+some css resets and utility classes
+
+/*************************************************
+top menu
+*************************************************/
+
+the styles for the top menu
+
+/*************************************************
+generic post listing
+*************************************************/
+
+some styles that apply to all post listings
+
+/*************************************************
+trending
+*************************************************/	
+
+the trending carousel
+
+/*************************************************
+logo bar
+*************************************************/	
+
+the logo area including sizzlin carousel
+
+/*************************************************
+main menu
+*************************************************/
+
+the styles for the main and sub menus
+
+/*************************************************
+featured bar
+*************************************************/	
+
+the featured carousel and right widgets
+
+/*************************************************
+top ten bar
+*************************************************/	
+
+the top ten carousel and right social widgets
+
+/*************************************************
+post loop
+*************************************************/
+
+the grid and list view main post loop layouts
+
+/*************************************************
+page content
+*************************************************/
+
+single review, post, and page views
+
+/*************************************************
+directory listing
+*************************************************/
+
+minisite directory styles
+
+/*************************************************
+sidebar
+*************************************************/
+
+all the sidebar widgets styles
+
+/*************************************************
+footer
+*************************************************/
+
+footer widgets styles
+
+/*************************************************
+general widget style
+*************************************************/
+
+some styles that apply to all widgets in all areas
+
+/*************************************************
+shortcodes and Bootstrap overrides
+*************************************************/
+
+shortcode styles and bootstrap overrides
+
+/*************************************************
+ratings
+*************************************************/
+
+styles for the various rating methods
+
+/*************************************************
+jQuery rateit (stars)
+*************************************************/
+
+/*************************************************
+jQuery selectBox
+*************************************************/
+
+/*************************************************
+jQuery slider (form toggle slider)
+*************************************************/
+
+/*************************************************
+jQuery simplyScroll2
+*************************************************/
+
+/*************************************************
+jQuery revolution slider
+*************************************************/
+
+styles for all the various jquery plugins used by the theme, combined into the style.css file instead of separated out into their own files for faster site loading
+
+/*************************************************
+responsive declarations
+*************************************************/
+
+starts with largest desktop size and works down to mobile portrait layouts
+
+/*************************************************
+general retina declarations for all layouts
+*************************************************/	
+
+comes after responsive declarations because it needs to override them in some cases
+
+/*************************************************
+font icons
+*************************************************/	
+
+the icon font set declarations
+
+/*************************************************
+demo purposes only
+*************************************************/
+
+styles for the demo settings panel used on the live demo
+    
+    </pre>
+    
+    </div>
+    
+    <p>
+    <span class="label label-info">Tip </span> Whenever you want to change the style of any part of the theme, use Chrome or Firefox+Firebug and right click on the area you want to change and choose Inspect Element. That will bring up a console that shows exactly which lines of CSS in exactly which files affect that element so that you can go in and change the style how you see fit.
+    </p>
+    
+    <h3>jQuery</h3>
+    
+    <p>This theme enqueues WordPress's built-in javascript libraries correctly using the <code>wp_enqueue_script</code> function and does not make any manual calls to jQuery or jQuery UI libraries. Here are the scripts that are enqueued:</p>
+    
+    <pre>
+    wp_enqueue_script("jquery");
+    wp_enqueue_script('jquery-ui-core');
+    wp_enqueue_script('jquery-ui-tabs');
+    wp_enqueue_script('jquery-ui-widget');
+    wp_enqueue_script('jquery-ui-slider');
+    wp_enqueue_script('jquery-ui-effects-core');
+    
+    #the following are only loaded if demo settings panel is enabled
+    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_script(
+        'iris',
+        admin_url( 'js/iris.min.js' ),
+        array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),
+        false,
+        1
+    );
+    wp_enqueue_script(
+        'wp-color-picker',
+        admin_url( 'js/color-picker.min.js' ),
+        array( 'iris' ),
+        false,
+        1
+    ); 
+    </pre>
+    
+    <p>After jQuery and jQuery UI are loaded, the theme then loads the Bootstrap necessary javascript library contained in the <code>bootstrap.js</code> file within the js/ folder. Finally, there are several jQuery plugins necessary for various UI elements throughout the theme (such as carousel animations and Twitter feeds for example), and they are contained within the <code>plugins.js</code> file in the js/ folder. Here's a list of the plugins contained in the plugins file:</p>
+    
+    <dl class="dl-horizontal">
+        <dt>Superfish</dt>
+        <dd>Enables smooth menu drop down animations and provides some style helpers to menus</dd>
+        <dt>selectBox</dt>
+        <dd>Provides a more compact, select box-type drop down for menus in smaller responsive layouts</dd>
+        <dt>List Ticker</dt>
+        <dd>Functionality for the Sizzlin' carousel</dd>
+        <dt>waitForImages</dt>
+        <dd>A javascript library requirement of the slider revolution jQuery slider</dd>
+        <dt>simplyScroll 2</dt>
+        <dd>Provides the functionality of the Top Ten carousel</dd>
+        <dt>Tweet</dt>
+        <dd>Provides the functionality of the Latest Tweets widget</dd>
+        <dt>Fitvids</dt>
+        <dd>Enables videos embedded within the post loop to be responsive</dd>
+        <dt>Flickr</dt>
+        <dd>Provides the functionality of the Flickr photos widget</dd>
+        <dt>RateIt</dt>
+        <dd>Provides the functionality of the star rating mouseover and rating click functions</dd>
+        <dt>Slider Revolution</dt>
+        <dd>The responsive jQuery large featured carousel</dd>        
+    </dl>
+    
+    <p>
+    <span class="label label-important">Important </span> The theme actually uses the minified version of both files in the js/ folder for performance reasons: <code>bootstrap.min.js</code> and <code>plugins.min.js</code>. We have provided the unminified versions for your convenience. You'll notice even in the unminified version of the <code>plugins.js</code> some of the various plugins are still minified within the file, but at least they are all separated out and commented so that you can selectively remove one if needed.
+    </p>
+    
+    <p>You'll notice there is no custom.js file or or any other javascript file that has all the theme-specific javascript code, and that's because all of this is contained within two PHP files called <code>scripts.php</code> and <code>scripts-ajax.php</code> within the inc/ folder. The reason for this is because within a lot of the javascript functions it is necessary to access a theme setting or other PHP variable, so the page is actually a PHP file that outputs javascript. These files are loaded in the footer so they do not have any negative performance impact. When you open each of the files to edit them you'll see normal javascript code with some PHP variables dispersed throughout.</p>
+    
+    <p>The <code>scripts.php</code> file contains all the document.ready javascript code and custom functions used by the theme. It calls all of the previously mentioned jQuery plugins, such as superfish and slider revolution. After the document.ready area comes the window.load section which does more of the same, just during a different time of page load. Finally at the bottom you'll notice a block of javascript that is only loaded if you have the demo settings panel active, and it deals with the custom functions necessary to change theme colors by interacting with the settings panel for instance.</p>
+    
+    <p>The <code>scripts-ajax.php</code> file contains all of the AJAX functions needed for the live post sorting and filtering in the post loop and widget areas. It also contains the AJAX for live user ratings and like functionality. This file is for more advanced users and will not be explained here since it shouldn't need to be updated, but in case you need to do so the file is commented, indented, spaced, and semantically written for your convenience.</p>
+    
+    <h3>PHP</h3>
+    
+    <p>The <code>framework.php</code> file, which is called by the standard <code>functions.php</code> file, sets up all the theme functions and classes. Within this file is the main IndustrialThemes class that builds out theme constant variables, functions files (found inside the functions/ folder), theme actions/filters/supports methods, and localization.</p>
+    
+    <p>
+    There are two main folders containing all of the PHP files used by the theme, the inc/ folder and the functions/ folder. The inc/ folder contains all of the files that are called by the theme files using the <code>it_get_template_part()</code> function. The argument within the function matches the filename of the file to load within the inc/ folder. For instance, this <code>it_get_template_part('trending')</code> will load the <code>trending.php</code> file within the inc/ folder. A good example of this is the theme's <code>header.php</code> file:
+    </p>
+    
+    <pre>
+&lt;!DOCTYPE HTML&gt;
+
+    &lt;html &lt;?php language_attributes(); ?&gt;&gt;
+    
+    &lt;meta http-equiv="Content-Type" content="&lt;?php bloginfo('html_type'); ?&gt;; charset=&lt;?php bloginfo('charset'); ?&gt;" /&gt;
+    
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    
+    &lt;?php if (is_search()) { ?&gt;
+    	&lt;meta name="robots" content="noindex, nofollow" /&gt; 
+    &lt;?php } ?&gt;
+    
+    &lt;title&gt;&lt;?php wp_title( '|', true, 'right' );?&gt;&lt;/title&gt;
+    
+    &lt;?php do_action('it_head'); ?&gt;    
+    
+    &lt;link rel="pingback" href="&lt;?php bloginfo('pingback_url'); ?&gt;" /&gt;
+    
+    &lt;?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?&gt;
+    
+    &lt;?php wp_head(); ?&gt;
+    
+    &lt;?php echo it_get_setting("analytics_code"); // google analytics code ?&gt;  
+    
+&lt;/head&gt;
+    
+&lt;body &lt;?php body_class('it-background'); ?&gt;&gt;
+    
+    &lt;div id="ajax-error"&gt;&lt;/div&gt;
+    
+    &lt;?php it_get_template_part('menu-top'); # the fluid top menu ?&gt;
+    
+    &lt;div class="container"&gt;
+    
+        &lt;div id="bg-overlay" class="row"&gt;&lt;div class="span12"&gt;&lt;/div&gt;&lt;/div&gt;
+        
+        &lt;?php it_get_template_part('trending'); # trending carousel ?&gt;
+        
+        &lt;?php it_get_template_part('logo-bar'); # header bar containing logo and sizzlin slider ?&gt;
+        
+        &lt;?php it_get_template_part('menu-main'); # main menu ?&gt;
+        
+        &lt;?php it_get_template_part('featured'); # featured bar ?&gt;
+        
+        &lt;?php it_get_template_part('top-ten'); # top 10 bar ?&gt;
+    </pre>
+    
+    <p>As you can see this allows a very clean set of standard WordPress theme framework files and keeps all the code organized into the various components. In fact, almost every PHP file you open follows suit and does not contain very much code but instead calls a file within the inc/ folder. This is done for the purposes of easily reusing large blocks of code, such as the main post loop code found in the <code>post-loop.php</code> file within the inc/ folder. You'll notice the files that call this particular file (all of which are almost identical) are:</p>
+    
+    <ul>
+    	<li>archive.php</li>
+        <li>index.php</li>
+        <li>search.php</li>
+        <li>template-directory.php</li>
+    </ul>
+    
+    <p>A similar scenario exists for the <code>page-content.php</code> file within the inc/ folder, called by:</p>
+    
+    <ul>
+    	<li>404.php</li>
+        <li>page.php</li>
+        <li>single.php</li>
+        <li>template-authors.php</li>
+    </ul>
+    
+    <p>The heart of the theme is within the functions/ folder and these files are called directly within the IndustrialThemes class from the <code>framework.php</code> file. This includes files that create the core functionality, review and minisite functionality, widgets and shortcodes, and admin functionality for the theme options page, page and post meta boxes, and general administrative and troubleshooting utilities. There are numerous files that make up the framework of the theme, so we have listed them all out below along with a brief description of what each one does:</p>
+    
+    <button type="button" class="btn" data-toggle="collapse" data-target="#phpfiles">View File Structure</button>
+    
+    <div id="phpfiles" class="collapse out">
+    
+    <div class="well">
+    
+    <ul>
+    	<li><strong>ajax.php</strong> called by the scripts-ajax.php file, contains query setup for the various post loops that are AJAX-enabled</li>
+        <li><strong>core.php</strong> all core functions used throughout the theme, such as enqueueing scripts, utility functions like getting a page ID from a page slug, and encoding/decoding functions for the theme settings import/export feature in the advanced theme options panel</li>
+        <li><strong>loop.php</strong> takes a location variable and returns markup for post display within any loop in the theme, including widgets</li>
+        <li><strong>minisite-meta-boxes.php</strong> creates the meta boxes that display on pages to be used for minisite templates</li>
+        <li><strong>minisites.php</strong> the class that creates the minisites, and receives minisite theme options and turns them into actual minisite objects</li>
+        <li><strong>options.php</strong> utility functions not used by default, only included for debugging/setup/troubleshooting</li>
+        <li><strong>reviews.php</strong> all functions that present markup for use in minisite/review functionality</li>
+        <li><strong>theme.php</strong> all functions the present markup for use in general theme layouts</li>
+        <li><strong>shortcodes</strong> the folder containing all of the shortcode classes
+        	<ul>
+            	<li><strong>_hidden.php</strong> contains helper functions for the column shortcodes</li>
+                <li><strong>alerts.php</strong> Bootstrap alert boxes</li>
+                <li><strong>buttons.php</strong> Bootstrap buttons</li>
+                <li><strong>carousel.php</strong> Bootstrap carousel</li>
+                <li><strong>hero.php</strong> Bootstrap hero unit</li>
+                <li><strong>icons.php</strong> shortcode to display the various font icons</li>
+                <li><strong>labels.php</strong> Bootstrap labels</li>
+                <li><strong>layouts.php</strong> shortcode to display the various column layouts</li>
+                <li><strong>lists.php</strong> shortcode to display the fancy image lists</li>
+                <li><strong>miscellaneous.php</strong> various minor utility shortcodes such as dividers and spans</li>
+                <li><strong>modal.php</strong> Bootstrap modal dialog box</li>
+                <li><strong>popovers.php</strong> Bootstrap popovers</li>
+                <li><strong>progress.php</strong> Bootstrap progress bars</li>
+                <li><strong>quotes.php</strong> Bootstrap blockquotes</li>
+                <li><strong>signoffs.php</strong> shortcode to display either custom or pre-defined signoff boxes</li>
+                <li><strong>table.php</strong> Bootstrap tables</li>
+                <li><strong>tabs.php</strong> Bootstrap tabs</li>
+                <li><strong>toggles.php</strong> Bootstrap toggles and accordions</li>
+                <li><strong>tooltips.php</strong> Bootstrap tooltips</li>
+                <li><strong>video.php</strong> shortcode to easily embed Youtube and Vimeo videos</li>
+            </ul>
+        </li>
+        <li><strong>widgets</strong> the folder containing all of the widget classes
+        	<ul>
+            	<li><strong>widget-clouds.php</strong> tag, category, and minisite taxonomy term clouds</li>
+                <li><strong>widget-latest-articles.php</strong> displays latest articles from specified minisites</li>
+                <li><strong>widget-minisite-tabs.php</strong> displays latest posts from minisites in a tab format</li>
+                <li><strong>widget-social-counts.php</strong> displays number of Twitter followers, Facebook fans, and Google+ connections</li>
+                <li><strong>widget-social-tabs.php</strong> displays various social network profiles in a tab format</li>
+                <li><strong>widget-text-unwrapped.php</strong> used for literal text in a unwrapped content area (no container or title)</li>
+                <li><strong>widget-top-reviewed.php</strong> displays top reviewed from various minisites for a certain timeframe</li>
+                <li><strong>widget-top-ten.php</strong> widget version of the top ten carousel</li>
+                <li><strong>widget-trending-articles.php</strong> widget version of the trending carousel</li>                
+            </ul>
+        </li>
+        <li><strong>admin</strong>
+        	<ul>
+            	<li><strong>admin.php</strong> the framework of the admin panel, creates the itAdmin class containing file includes, actions, filters, theme supports, and localization</li>
+                <li><strong>core.php</strong> all core functions used throughout the admin panel including AJAX messages, importing and exporting functions, demo settings encoded code strings, and arrays of available fonts and icons</li>
+                <li><strong>it-options.php</strong> creates arrays of all options in the theme options admin panel</li>
+                <li><strong>meta-directory.php</strong> creates options that appear in the minisite directory meta box on page edit screens</li>
+                <li><strong>meta-page.php</strong> creates options that appear for all page edit screens</li>
+                <li><strong>meta-post.php</strong> creates options that appear for all post edit screens</li>
+                <li><strong>metaboxes-generator.php</strong> the class that creates the metaboxes</li>
+                <li><strong>option-generator.php</strong> the class that all options use to create theme options</li>
+                <li><strong>scripts.php</strong> style and script enqueueing for the admin area</li>
+                <li><strong>shortcode-generator.php</strong> class that takes the shortcode files and turns them into usable objects</li>
+            </ul>
+        </li>
+        
+    </ul> 
+    
+    </div>  
+    
+    </div>
+    
+</section>
+
+<section id="design">                
+    
+    <h1>Design Assets</h1>
+    
+    <p>This theme contains both a compressed, non-layered version and a layered PNG version of every template image. If you want to edit one of the images within the theme's images/ folder you will notice that if you open it in a graphics editor it is just a flattened bitmap. Instead, look inside the PNG folder which comes inside of your main theme download folder from ThemeForest and find the corresponding image. You can open it in a graphics editor and make custom changes since it is a fully layered PNG version of the image. If you cannot find a corresponding version of the image you're trying to edit please contact support and let us know so we can provide you with the image.</p>
+    
+    <p>Addionally we have made available the layered design PNGs and PSDs for your convenience. These files are contained within either the PNG or the PSD folder (which is in the same location as the PNG folder mentioned above). You can open any of the PSDs in a capable graphics editor (such as Photoshop) and quickly find any part of the theme you're looking for. Alternatively you can open the corresponding PNG file in a capable graphics editor (such as Fireworks) and get the same access as the PSD version. This theme was designed using Fireworks and PNGs as opposed to Photoshop and PSDs, so the best option would be to edit the PNGs since they were converted retroactively into PSDs and not the other way around.</p>
+    
+    <p>These are the design files provided (they are named the same in both the PNG and PSD folders):</p>
+    
+    <p>
+    <div class="well">
+    <ul>
+    	<li><strong>archive.png/.psd</strong> design for a standard archive listing page</li>
+        <li><strong>homepage.png/.psd</strong> design for the main front page of the theme</li>
+        <li><strong>singlepage.png/.psd</strong> design for a single review page</li>
+    </ul>
+    </div>
+    </p>
+    
+    <p>
+    <span class="label label-info">Tip </span> If you cannot find a corresponding image in the PNG folder it likely means there is no layered version available, such as for minisite icons or very simple one-color graphical elements. However just to be sure we haven't missed it, feel free to contact us and ask about it.
+    </p>
+    
+</section>
+
+<section id="troubleshooting">             
+    
+    <h1>Troubleshooting &amp; Tips</h1>
+    
+    <p>Using the theme is actually pretty self-evident, and whenever there is any information that needs to be conveyed you can find it by hovering over the help icon to the right of each setting in the theme options and also in the post and page meta box options. We have also created screecasts that detail step by step how to accomplish common theme tasks, such as creating a minisite or using the shortcode generator. There are several additional helpful pieces of information that you may come across which are detailed below. Further questions that come up after the theme has been published will be added to the FAQs.</p>
+    
+    <p>
+    <a class="btn btn-large btn-primary" href="http://industrialthemes.ticksy.com" target="_blank">View FAQs</a>
+    </p> 
+    
+    <h3>Theme Tips</h3>
+    
+    <ul>
+    	<li>Names of rating criteria cannot match names of details or awards/badges (or "video" for featured video)</li>
+        <li>You cannot have more than one Minisite Articles widget in the same widget panel (but you can have one in multiple widget panels)</li>
+        <li>Number of user ratings displayed on single review articles doesn't update live via AJAX (and shouldn't since it's an average)</li>
+        <li>When a comment is deleted, the post custom meta fields are not deleted with it. This means if a user rates and/or submits pros/cons for an article via the comments and then their comment gets deleted, that user cannot post another comment with a rating and/or pros/cons again because that information still exists (but they can submit a standard comment)</li>
+        <li>If an article has never been liked it will not show up when filtering for likes, but if an article has been liked once and then unliked back to 0 likes (this will probably rarely happen) it <strong><em>will</em></strong> show up when filtering for likes. However, it will show up correctly at the end of the list with 0 likes. The discrepancy is worth note because it can be confusing if some posts with 0 likes display and some with 0 likes don't display.</li>
+        <li>You cannot put shortcodes in signoff content areas in Theme Options >> Signoffs, but you <strong><em>can</em></strong> put them in the custom text of the shortcode within the page/post editor. So if you want to have a signoff containing a shortcode, you'll need to use the custom signoff text option when adding the shortcode to the article/page content</li>
+        <li>If any of the social counts ever don't display and you've double-checked that your settings are right, it's because of an outage by the vendor (happens from time to time and will fix itself automatically as soon as the vendor fixes the outage on their end)</li>
+        <li>When adding carousel short codes to posts, do not use any left or right alignment on the main sliding image (you should only use block-level elements in carousels for them to function correctly). Image can be any size and will be responsively scaled down, it just can't ahve alignright or alignleft classes.</li>
+        <li>For HD versions of logos (main site logo and minisite logos) even though they are specified in theme options they must be named exactly like the SD logo and in the same folder, with @2x added right before the file extension.</li>
+    </ul>
+      
+    <br />
+    
+</section>
+
+<section id="themecheck">             
+    
+    <h1>"Theme Check" Explanation</h1>
+    
+    <p>If you run the Theme Check plugin, which is a requirement for submitting themes to ThemeForest and the WordPress plugin directory, you'll notice some warnings/errors that warrant explanation. Here is a list of the warning messages that occur and the explanation as to why each of them exists:</p>
+    
+    <h4>No reference to add_theme_support( 'custom-header', $args )</h4>
+
+	<p><strong>Explanation:</strong> The theme does not support using a custom image for the header. You can use a custom logo and a custom background, but due to the nature of the theme layout there really isn't a container for a header-specific image.</p>
+    
+    <h4>Found base64_encode</h4>
+
+	<p><strong>Explanation:</strong> This is needed for serializing the theme options in order for users to be able to export and import their theme options. There is no malicious code or file operations and it is purely for theme settings importing/exporting purposes and only available to the site admin.</p>
+    
+    <h4>file_get_contents was found, curl_init was found, and curl_exec was found</h4>
+
+	<p><strong>Explanation:</strong> Required by the functions in the widget that displays Twitter, Facebook, and Google+ social counts. This is the standard way of obtaining this information and interacting with the social media vendor APIs and there is no malicious code or file operations happening.</p>
+   
+    <br />
+    
+</section>
+
+<section id="performance">             
+    
+    <h1>Performance &amp; Optimization</h1>
+    
+    <p>We use <a href="http://wordpress.org/plugins/w3-total-cache/">W3 Total Cache</a> on our live preview demo, which is a great web performance tool that provides lots of caching options. We have also optimized all of the images used in our live preview using the <a href="http://wordpress.org/plugins/wp-smushit/">WP Smush.it</a> plugin which greatly reduces filesizes of images without sacrificing quality. Other than these two plugins, we are running the stock theme as it was built for performance. For instance, icon fonts are used instead of icon images which provides two benefits: performance and HiDPI/retina capability.</p>
+    
+    <p>We know it's important that your site is as fast as possible, which is why we've designed the theme to be as fast as possible. However if you test the theme using page speed metric sites like Pingdom and GTMetrix you'll always see room for improvement. It's important to note that not all site performance measures can be accomplished purely in the code - a lot of it has to do with web server settings, external assets like images, and third-party code. To further fine-tune the speed of your site we recommend following the techniques described in the page speed testers, and if you need professional expertise we recommend <a href="http://www.freelanceswitch.com">FreelanceSwitch.com</a> for great developers.</p>
+    
+    <p>We have extensively tested the theme using various page speed metric sites and fine-tuned it as much as we possibly could before we released it. Here is an itemized list of common recommendations we came across during our testing, along with our explanation of precisely why the issue is either irrelevant to the actual theme code or why we chose not to implement it:</p>
+    
+    <h4>Combine external JavaScript</h4>
+
+	<p><strong>Explanation:</strong> The theme only uses 2 javascript files, one for Bootstrap and one for the theme's jQuery plugins. The rest of the files are enqueued correctly and via best practices from WordPress's internal js library and thus cannot be combined. The reason the Bootstrap and the plugins javascript files are not combined is to make it easier to update Bootstrap in the future, and serving two js files instead of one has such a negligible impact that we are not worried about it.</p>
+    
+    <h4>Remove query strings from static resources</h4>
+
+	<p><strong>Explanation:</strong> This is again referring to the javascript imported directly from within WordPress's internal libraries, and WordPress requires that querystrings be used in the enqueueing functions (in other words, this is not a theme issue but rather an inherent WordPress issue).</p>
+    
+    <h4>Serve Scaled Images</h4>
+
+	<p><strong>Explanation:</strong> The main featured slider is fully responsive, so the largest size image that is needed for all responsive layouts is used for the slider image, and sometimes the smaller (scaled) size is shown depending on which responsive layout you're on. For instance, with the smallest featured slider layout, the largest responsive layout (large desktop) actually doesn't show the largest image - rather the second largest responsive layout (small desktop) does because it hides one of the widget columns to the right of the slider and displays a slightly larger overall slider, which causes page speed metric testing tools (which don't know this information) to make an irrelevant recommendation.
+</p>
+    
+    <h4>Reduce the number of DOM elements</h4>
+
+	<p><strong>Explanation:</strong> Because of the nature of how robust and feature-rich the theme is, there is simply no way to reduce the number of DOM elements. If you want less DOM elements, you should use a "less" theme :)</p>
+    
+    <h4>Combine images using CSS sprites</h4>
+
+	<p><strong>Explanation:</strong> This is one area that could probably be improved, but the ratio of performance increase versus time required to implement was not deemed to be worth the cost.</p>
+    
+    <h4>Serve resources from a consistent URL</h4>
+
+	<p><strong>Explanation:</strong> This is caused by Facebook integration within the social widgets and there is nothing to be done on the theme's end (in other words, this is not a theme issue but rather an inherent Facebook issue).</p>
+    
+    <h4>Specify image dimensions</h4>
+
+	<p><strong>Explanation:</strong> The Pinterest widget displays images without image dimensions. Just don't use it and you won't have this issue. There's nothing that can be done on the theme's end (in other words, this is not a theme issue but rather an inherent Pinterest issue). All image dimensions are specified correctly within the theme code.</p>
+      
+    <br />
+    
+</section>
+
+<section id="upgrading">             
+    
+    <h1>Upgrading from Made or SwagMag</h1>
+    
+    <p>We tried to make the upgrading process as simple as possible if you are currently running one of our previous themes like Made or SwagMag. However since this theme is part of a brand new IndustrialThemes framework, which is a complete rewrite of the entire codebase and existing framework, some work is required to upgrade your site to be able to run this theme. Upgrading from SwagMag to Made was simple because they were built on the exact same framework, but not so with this theme. The good news is we are planning on releasing several themes on this new framework, which means that upgrading from this theme to future themes will be a walk in the park.</p>
+    
+    <p>Can you upgrade? Short answer: <strong>absolutely</strong>. Long answer: you need to <em>carefully</em> follow the steps listed in this guide to upgrade your site, and it's going to require some effort and a bit of time on your part, but in the long run we think it's totally worth it. This theme is so much more powerful than anything we have created so far that there is almost no comparison.</p>
+    
+    <p>So, how to upgrade? We ran several simulations and performed lots of mock upgrades just to see what all is required, and we've settled on this guide as a pretty solid set of steps. If you don't understand something or if you experience some sort of error or catch a bug in the process, please let us know via our support center.</p>
+    
+    <p><span class="label label-important">Important </span> <strong>Make a backup of your site before you perform these steps!</strong> You never know what could go wrong and it's always a good idea to make a full backup before you perform any major changes to your site (a full backup means your WordPress database and your site files). We are not responsible for loss of data or content.</p>
+    
+    <p><span class="label label-info">Tip </span> We recommend creating a copy of your site in another location on your web server, like within a test subfolder that you create. That way you can play around with the upgrade process without worrying about your live site going down or breaking something and having to restore a backup. Once you get your site all setup how you want it in your test install, you can then copy it back over on top of your live site without having to worry about down time. This can be somewhat involved and is not something we'll explain here since it's a very common issue and there's lots of documentation out there already on the subject. Start with the official <a href="http://codex.wordpress.org/Moving_WordPress">Codex article about moving WordPress</a> and then look at the link at the bottom of the article under "Additional Information", specifically <a href="http://www.prelovac.com/vladimir/how-to-move-wordpress-site-to-another-server-with-zero-downtime">How to move WordPress site to another server with zero downtime</a> which further points to an available plugin called <a href="https://managewp.com/how-to-move-wordpress-site-to-new-hosting-using-managewp">ManageWP</a>.</p>
+    
+    <h3>Steps for Upgrading</h3>
+    
+    <ol>
+        <li>Again, we can't stress enough, <strong>make a full backup of your site</strong></li>
+        <li>Activate the new theme</li>
+        <li>Go to Appearance >> Theme Options >> Minisite Setup and enable the <strong>Legacy</strong> option <br />
+        	<span class="label label-warning">Status: all reviews are hidden, only pages and posts are visible</span></li>
+        <li>Create each minisite with the same name/slug as in the previous theme <br />
+        	<span class="label label-warning">Status: reviews are now visible in dashboard</span></li>
+        <li>Create each taxonomy within each minisite with the same name/slug as in the previous theme <br />
+        	<span class="label label-warning">Status: taxonomy terms now matched up and assigned to all reviews</span></li>
+        <li>Within each minisite, create each meta field that existed in the old theme as a new detail for each minisite</li>
+        <li>Within each minisite, create each rating criteria that existed in the previous theme as a new rating criteria</li>
+        <li>Setup the minisite settings to match your previous theme, such as the rating type, star color, logo, color scheme, etc.</li>
+        <li>Install and activate the <a href="http://wordpress.org/extend/plugins/custom-field-bulk-editor/">Custom Field Bulk Editor</a> plugin</li>
+        <li>For each minisite in the WordPress admin menu (the main WordPress left-hand admin menu where you go to actually write articles, not the theme options screen):
+        	<ol>
+            	<li>Click on the Bulk Edit Fields link</li>
+                <li>Select all review articles using the select all checkbox at the top</li>
+                <li>Click "Want to change a custom field name?"</li>
+                <li>Enter "Positives" for the original custom field name and "_positives" for the new custom field name and click Save Custom Fields</li>
+                <li>Do the same for "Negatives" and "_negatives"</li>
+                <li>Do the same for each of your rating criteria, replacing spaces with "_". For example: "Costume Design" would become "_costume_design"</li>
+                <li><span class="label label-important">Important </span> Every time you do this, don't forget to select all articles and click the Save Custom Fields button at the bottom <br />
+                	<span class="label label-warning">Status: meta fields and rating criteria now re-connected to all reviews</span></li>
+            </ol>
+		</li>
+        <li>Since total scores are now stored in the database instead of being generated on the fly, open each review and click Update for the total score to be calculated and stored in the review's meta fields.<br />
+        	<span class="label label-warning">Status: total scores now re-connected to all reviews</span></li>
+        <li>Copy what was previously the review's excerpt into the newly available Bottom Line field<br />
+        	<span class="label label-warning">Status: all reviews now have bottom line text visible</span></li>
+    </ol>
+    
+    <p>So as you can see, the reviews themselves become available and visible pretty much immediately. The tweaking and fixing really comes into play to match up all the details of the reviews.</p>
+      
+    <br />
+    
+</section>
+
+<section id="credits">             
+    
+    <h1>Credits</h1>
+    
+    <p>All external assets used by the theme have been bought and paid for or are free for commercial use. We have taken careful strides to make sure we attribute every asset to its creator and owner even if attribution is not required. In order to keep this list updated easily and contained in just one place, we have created a section of the support center purely for housing credit/copyright/licensing information. Please refer to that page for credits:</p>
+    
+    <p>
+    <a class="btn btn-large btn-primary" href="http://www.industrialthemes.com/flavor/support/credits/" target="_blank">View Credits</a>
+    </p>  
+      
+    <br />
+    
+</section>
+            
+            </div>
+          
+        </div>
+    
+    </div>
+    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>	
+    
+    <script type="text/javascript">
+		!function ($) {
+
+		  $(function(){
+		
+			var $window = $(window)
+		
+			// Disable certain links in docs
+			$('section [href^=#]').click(function (e) {
+			  e.preventDefault()
+			})
+		
+			// side bar
+			setTimeout(function () {
+			  $('.nav-sidenav').affix({
+				offset: {
+				  top: function () { return $window.width() <= 980 ? 290 : 210 }
+				, bottom: 270
+				}
+			  })
+			}, 100)
+		  })
+		
+		}(window.jQuery)
+	</script>
+    
+</body>
+</html>
