@@ -16,6 +16,26 @@ function it_loop($args, $format, $timeperiod = '') {
 	$nonajax = array_key_exists('nonajax', $format) ? $format['nonajax'] : '';
 	#don't care about pagename if we're displaying a post loop on a content page
 	$args['pagename'] = '';
+
+
+
+/**
+*  Customizations for tjd
+*   * Use our custom post types (tmt-deal-posts in particular)
+*   * Display our custom fields
+*/
+
+// Use our custom post types
+//  (though maybe we can get away from this
+//   and just use regular posts
+//   along with our custom fields)
+$args['post_type'] = "tmt-deal-posts";
+
+
+// Add our custom content
+//  to <div class="panel-wrapper">
+/*******/	
+	
 	#add a filter if this loop needs a time constraint (can't add to query args directly)
 	global $timewhere;
 	$timewhere = $timeperiod;
